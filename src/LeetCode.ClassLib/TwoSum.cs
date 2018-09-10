@@ -24,12 +24,12 @@ namespace LeetCode.ClassLib {
     public class TwoSum {
 
         /// <summary>
-        /// nlogn sorting approach
+        /// O(NLogN) sorting approach
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="target"></param>
         /// <returns>A pair of indices</returns>
-        public int[] FindTwoSum (int[] nums, int target) {
+        public int[] FindTwoSumOne (int[] nums, int target) {
             int[] result = new int[2];
 
             // Form tuples of (number, index)
@@ -65,6 +65,36 @@ namespace LeetCode.ClassLib {
 
             return result;
 
+        }
+
+        /// <summary>
+        /// O(N) approach using a dictionary
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public int[] FindTwoSumTwo (int[] nums, int target) {
+            Dictionary<int, int> map = new Dictionary<int, int> ();
+            int[] result = new int[2];
+
+            for (int i = 0; i < nums.Length; i++) {
+
+                // Minus the current number off the target
+                int complement = target - nums[i];
+
+                // if complement exists, we have found a match
+                if (map.ContainsKey (complement)) {
+                    result[0] = map[complement];
+                    result[1] = i;
+                    break;
+                }
+
+                // To prevent key exception for adding the same key, remove it first
+                map.Remove (nums[i]);
+                map.Add (nums[i], i);
+            }
+
+            return result;
         }
     }
 }
