@@ -9,6 +9,7 @@ namespace LeetCode.ConsoleApp {
             TwoSumTest ();
             AddTwoTest ();
             LongestSubStringTest ();
+            LongestPalindromeTest ();
         }
 
         /// <summary>
@@ -47,7 +48,7 @@ namespace LeetCode.ConsoleApp {
             l2.ReverseLinkedList (l2);
             int n2 = l2.GetNumber (l2);
 
-            Console.WriteLine ("{0} + {1} = {2}", n1, n2, n1 + n2);
+            Console.WriteLine ("Result: {0} + {1} = {2}\n", n1, n2, n1 + n2);
 
         }
 
@@ -61,10 +62,24 @@ namespace LeetCode.ConsoleApp {
 
             LongestSubString longestSubString = new LongestSubString ();
 
+            Console.WriteLine ("Results:");
             foreach (string str in testStrings) {
                 Console.WriteLine ("{0} -> {1}", str, longestSubString.LengthOfLongestSubstring (str));
             }
 
+        }
+
+        private static void LongestPalindromeTest () {
+            Console.WriteLine ("\nLongest Palindrome question:");
+
+            string[] testStrings = new string[] { "babad", "cbbd" };
+
+            LongestPalindrome longestPalindrome = new LongestPalindrome ();
+
+            Console.WriteLine ("Results:");
+            foreach (string str in testStrings) {
+                Console.WriteLine ("{0} -> {1}", str, longestPalindrome.LongestPalindromeSubString (str));
+            }
         }
     }
 }
