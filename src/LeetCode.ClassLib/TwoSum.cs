@@ -72,7 +72,7 @@ namespace LeetCode.ClassLib {
         /// </summary>
         /// <param name="nums"></param>
         /// <param name="target"></param>
-        /// <returns></returns>
+        /// <returns>A pair of indices</returns>
         public int[] FindTwoSumTwo (int[] nums, int target) {
             Dictionary<int, int> map = new Dictionary<int, int> ();
             int[] result = new int[2];
