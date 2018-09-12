@@ -8,6 +8,7 @@ namespace LeetCode.ConsoleApp {
         public static void Main (string[] args) {
             TwoSumTest ();
             AddTwoTest ();
+            LongestSubStringTest ();
         }
 
         /// <summary>
@@ -47,6 +48,22 @@ namespace LeetCode.ConsoleApp {
             int n2 = l2.GetNumber (l2);
 
             Console.WriteLine ("{0} + {1} = {2}", n1, n2, n1 + n2);
+
+        }
+
+        /// <summary>
+        /// Longest Substring problem
+        /// </summary>
+        private static void LongestSubStringTest () {
+            Console.WriteLine ("Longest Substring question:");
+
+            string[] testStrings = new string[] { "abcabcbb", "bbbbb", "pwwkew" };
+
+            LongestSubString longestSubString = new LongestSubString ();
+
+            foreach (string str in testStrings) {
+                Console.WriteLine ("{0} -> {1}", str, longestSubString.LengthOfLongestSubstring (str));
+            }
 
         }
     }
