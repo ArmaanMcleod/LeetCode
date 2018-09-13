@@ -2,4 +2,13 @@
 
 ## To run:
 
-Use `./test.sh`
+`./test.sh`
+
+## Solutions Folder
+
+`LeetCode.ClassLib`
+
+## Main Program
+
+`LeetCode.ConsoleApp.Program.cs`
+
