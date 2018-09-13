@@ -27,7 +27,7 @@ namespace LeetCode.ClassLib {
 
         /// <summary>
         /// Main solution for converting string to atoi number
-        /// Some unnecessary and useless code here and could be refactored more 
+        /// WARNING: VERY BAD CODE BELOW
         /// </summary>
         public int MyAtoi (string str) {
             string trimmed = str.Trim ();
