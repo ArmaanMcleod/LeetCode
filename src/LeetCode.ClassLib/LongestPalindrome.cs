@@ -105,7 +105,7 @@ namespace LeetCode.ClassLib {
                 return "";
             }
 
-            HashSet<string> letters = new HashSet<string> ();
+            HashSet<char> letters = new HashSet<char> (s.ToArray ());
             if (letters.Count == 1) {
                 return s;
             }
