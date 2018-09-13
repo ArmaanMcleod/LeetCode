@@ -1,14 +1,8 @@
 # LeetCode Problems C#
 
-## To run:
+## to run sample test cases:
 
 `./test.sh`
 
-## Solutions Folder
-
-`LeetCode.ClassLib`
-
-## Main Program
-
-`LeetCode.ConsoleApp.Program.cs`
+Solutions exist in `LeetCode/src/LeetCode.ClassLib`. 
 
