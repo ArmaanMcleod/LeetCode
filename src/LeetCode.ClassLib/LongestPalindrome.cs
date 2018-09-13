@@ -1,4 +1,7 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 /*
@@ -22,10 +25,11 @@ namespace LeetCode.ClassLib {
 
         /// <summary>
         /// Brute force finding longest palindrome
+        /// This does not pass the tests
         /// </summary>
         /// <param name="s"></param>
         /// <returns>longest palindrome</returns>
-        public string LongestPalindromeSubString (string s) {
+        public string LongestPalindromeSubStringOne (string s) {
             if (string.IsNullOrEmpty (s)) {
                 return "";
             }
@@ -61,11 +65,66 @@ namespace LeetCode.ClassLib {
         /// </summary>
         /// <param name="s"></param>
         /// <returns></returns>
-        private bool IsPalindrome (string s) {
+        private static bool IsPalindrome (string s) {
             char[] charArray = s.ToCharArray ();
             Array.Reverse (charArray);
             string reversedString = new string (charArray);
             return s.Equals (reversedString);
+        }
+
+        /// <summary>
+        /// Expands strings from center to find palindromes
+        /// </summary>
+        /// <param name="str"></param>
+        /// <param name="low"></param>
+        /// <param name="high"></param>
+        /// <param name="palindromes"></param>
+        private static string ExpandPalindrome (string str, int low, int high, string longestPalindrome) {
+            int maxLength = longestPalindrome.Length;
+            string longest = longestPalindrome;
+
+            while (low >= 0 && high < str.Length && str[low] == str[high]) {
+                int rest = high - low + 1;
+                string subString = str.Substring (low, rest);
+                int subStringLength = subString.Length;
+
+                if (subStringLength > maxLength) {
+                    maxLength = subStringLength;
+                    longest = subString;
+                }
+
+                low--;
+                high++;
+            }
+
+            return longest;
+        }
+
+        public string LongestPalindromeSubStringTwo (string s) {
+            if (string.IsNullOrEmpty (s)) {
+                return "";
+            }
+
+            HashSet<string> letters = new HashSet<string> ();
+            if (letters.Count == 1) {
+                return s;
+            }
+
+            int length = s.Length;
+
+            string longest = "";
+
+            for (int i = 0; i < length; i++) {
+
+                // Odd palindromes
+                longest = ExpandPalindrome (s, i, i, longest);
+
+                // Even palindromes
+                longest = ExpandPalindrome (s, i, i + 1, longest);
+
+            }
+
+            return longest;
         }
     }
 }

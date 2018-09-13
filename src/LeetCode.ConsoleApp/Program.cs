@@ -78,7 +78,7 @@ namespace LeetCode.ConsoleApp {
 
             Console.WriteLine ("Results:");
             foreach (string str in testStrings) {
-                Console.WriteLine ("{0} -> {1}", str, longestPalindrome.LongestPalindromeSubString (str));
+                Console.WriteLine ("{0} -> {1}", str, longestPalindrome.LongestPalindromeSubStringTwo (str));
             }
         }
     }
