@@ -11,6 +11,7 @@ namespace LeetCode.ConsoleApp {
             LongestSubStringTest ();
             LongestPalindromeTest ();
             ReverseIntegerTest ();
+            StringToIntegerTest ();
         }
 
         /// <summary>
@@ -92,6 +93,18 @@ namespace LeetCode.ConsoleApp {
 
             foreach (int number in testNumbers) {
                 Console.WriteLine ("{0} -> {1}", number, reverseInteger.Reverse (number));
+            }
+        }
+
+        private static void StringToIntegerTest () {
+            Console.WriteLine ("\nReverse Integer question:");
+
+            string[] testStrings = new string[] { "42", "   -42", "4193 with words", "words and 987", "-91283472332", "+1", "2147483648", "" };
+
+            StringToInteger stringToInteger = new StringToInteger ();
+
+            foreach (string str in testStrings) {
+                Console.WriteLine ("{0} -> {1}", str, stringToInteger.MyAtoi (str));
             }
         }
     }
