@@ -10,6 +10,7 @@ namespace LeetCode.ConsoleApp {
             AddTwoTest ();
             LongestSubStringTest ();
             LongestPalindromeTest ();
+            ReverseIntegerTest ();
         }
 
         /// <summary>
@@ -79,6 +80,18 @@ namespace LeetCode.ConsoleApp {
             Console.WriteLine ("Results:");
             foreach (string str in testStrings) {
                 Console.WriteLine ("{0} -> {1}", str, longestPalindrome.LongestPalindromeSubStringTwo (str));
+            }
+        }
+
+        private static void ReverseIntegerTest () {
+            Console.WriteLine ("\nReverse Integer question:");
+
+            int[] testNumbers = new int[] { 123, -123, 120, 1534236469 };
+
+            ReverseInteger reverseInteger = new ReverseInteger ();
+
+            foreach (int number in testNumbers) {
+                Console.WriteLine ("{0} -> {1}", number, reverseInteger.Reverse (number));
             }
         }
     }

@@ -100,11 +100,18 @@ namespace LeetCode.ClassLib {
             return longest;
         }
 
+        /// <summary>
+        /// quadradic solution to problem.
+        /// Passes all tests and time constraints.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>The longest palindrome</returns>
         public string LongestPalindromeSubStringTwo (string s) {
             if (string.IsNullOrEmpty (s)) {
                 return "";
             }
 
+            // If the string is only one character throughout, return it immediately
             HashSet<char> letters = new HashSet<char> (s.ToArray ());
             if (letters.Count == 1) {
                 return s;
