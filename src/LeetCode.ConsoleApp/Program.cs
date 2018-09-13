@@ -12,6 +12,7 @@ namespace LeetCode.ConsoleApp {
             LongestPalindromeTest ();
             ReverseIntegerTest ();
             StringToIntegerTest ();
+            PalindromeNumberTest ();
         }
 
         /// <summary>
@@ -105,6 +106,18 @@ namespace LeetCode.ConsoleApp {
 
             foreach (string str in testStrings) {
                 Console.WriteLine ("{0} -> {1}", str, stringToInteger.MyAtoi (str));
+            }
+        }
+
+        private static void PalindromeNumberTest () {
+            Console.WriteLine ("\n Palindrome Number question:");
+
+            PalindromeNumber palindromeNumber = new PalindromeNumber ();
+
+            int[] testNumbers = new [] { 121, -121, 10 };
+
+            foreach (int number in testNumbers) {
+                Console.WriteLine ("{0} -> {1}", number, palindromeNumber.IsPalindrome (number));
             }
         }
     }
