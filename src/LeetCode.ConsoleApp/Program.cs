@@ -100,7 +100,7 @@ namespace LeetCode.ConsoleApp {
         private static void StringToIntegerTest () {
             Console.WriteLine ("\nReverse Integer question:");
 
-            string[] testStrings = new string[] { "42", "   -42", "4193 with words", "words and 987", "-91283472332", "+1", "2147483648", "" };
+            string[] testStrings = new string[] { "42", "   -42", "4193 with words", "words and 987", "-91283472332", "+1", "2147483648" };
 
             StringToInteger stringToInteger = new StringToInteger ();
 
@@ -117,7 +117,7 @@ namespace LeetCode.ConsoleApp {
             int[] testNumbers = new [] { 121, -121, 10 };
 
             foreach (int number in testNumbers) {
-                Console.WriteLine ("{0} -> {1}", number, palindromeNumber.IsPalindrome (number));
+                Console.WriteLine ("{0} -> {1}", number, palindromeNumber.IsPalindromeTwo (number));
             }
         }
     }

@@ -27,51 +27,51 @@ namespace LeetCode.ClassLib {
 
         /// <summary>
         /// Main solution for converting string to atoi number
-        /// WARNING: VERY BAD CODE BELOW
         /// </summary>
         public int MyAtoi (string str) {
+
+            // Trim the string of whitespace
             string trimmed = str.Trim ();
             int length = trimmed.Length;
 
-            for (int i = 0; i < length; i++) {
-                if (trimmed[i] != ' ') {
-                    string rest = trimmed.Substring (i, length - i);
-                    int stringLength = rest.Length;
-                    StringBuilder stringBuffer = new StringBuilder ();
+            if (String.IsNullOrEmpty (trimmed)) {
+                return 0;
+            }
 
-                    if (rest[0] == '-' || rest[0] == '+') {
-                        stringBuffer.Append (rest[0]);
-                        rest = rest.Substring (1, stringLength - 1);
+            StringBuilder stringBuffer = new StringBuilder ();
+
+            // Add positive or negative sign
+            if (trimmed[0] == '-' || trimmed[0] == '+') {
+                stringBuffer.Append (trimmed[0]);
+                trimmed = trimmed.Substring (1, length - 1);
+            }
+
+            // Go through rest of characters
+            foreach (char character in trimmed) {
+                if (!Char.IsDigit (character)) {
+                    break;
+                }
+                stringBuffer.Append (character);
+            }
+
+            // Attempt to parse integer, covering exceptions along the way
+            try {
+                int number = Int32.Parse (stringBuffer.ToString ());
+                return number;
+
+            } catch (Exception ex) {
+                if (ex is OverflowException) {
+
+                    if (stringBuffer[0] == '-') {
+                        return int.MinValue;
                     }
 
-                    foreach (char character in rest) {
-                        if (!Char.IsDigit (character)) {
-                            break;
-                        }
-                        stringBuffer.Append (character);
-                    }
+                    return int.MaxValue;
 
-                    try {
-                        int number = Int32.Parse (stringBuffer.ToString ());
-                        return number;
-
-                    } catch (Exception ex) {
-                        if (ex is OverflowException) {
-
-                            if (stringBuffer[0] == '-') {
-                                return int.MinValue;
-                            }
-
-                            return int.MaxValue;
-
-                        } else if (ex is FormatException) {
-                            return 0;
-                        }
-                    }
-
+                } else if (ex is FormatException) {
+                    return 0;
                 }
 
-                return 0;
             }
 
             return 0;
