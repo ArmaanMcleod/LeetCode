@@ -47,13 +47,12 @@ namespace LeetCode.ClassLib {
         /// <param name="x"></param>
         /// <returns>Reversed integer</returns>
         private static int reverseNumber (int x) {
-            int number = x;
 
             int revertedNumber = 0;
-            while (number != 0) {
-                int remainder = number % 10;
+            while (x != 0) {
+                int remainder = x % 10;
                 revertedNumber = revertedNumber * 10 + remainder;
-                number /= 10;
+                x /= 10;
             }
 
             return revertedNumber;

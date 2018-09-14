@@ -13,6 +13,7 @@ namespace LeetCode.ConsoleApp {
             ReverseIntegerTest ();
             StringToIntegerTest ();
             PalindromeNumberTest ();
+            RomanToIntegerTest ();
         }
 
         /// <summary>
@@ -110,7 +111,7 @@ namespace LeetCode.ConsoleApp {
         }
 
         private static void PalindromeNumberTest () {
-            Console.WriteLine ("\n Palindrome Number question:");
+            Console.WriteLine ("\nPalindrome Number question:");
 
             PalindromeNumber palindromeNumber = new PalindromeNumber ();
 
@@ -118,6 +119,17 @@ namespace LeetCode.ConsoleApp {
 
             foreach (int number in testNumbers) {
                 Console.WriteLine ("{0} -> {1}", number, palindromeNumber.IsPalindromeTwo (number));
+            }
+        }
+
+        private static void RomanToIntegerTest () {
+            Console.WriteLine ("\nRoman To Integer question:");
+
+            RomanToInteger romanToInteger = new RomanToInteger ();
+
+            string[] testStrings = new string[] { "III", "IV", "IX", "LVIII", "MCMXCIV" };
+            foreach (string str in testStrings) {
+                Console.WriteLine ("{0} -> {1}", str, romanToInteger.RomanToInt (str));
             }
         }
     }
