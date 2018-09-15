@@ -14,6 +14,7 @@ namespace LeetCode.ConsoleApp {
             StringToIntegerTest ();
             PalindromeNumberTest ();
             RomanToIntegerTest ();
+            IntegerToRomanTest ();
         }
 
         /// <summary>
@@ -130,6 +131,17 @@ namespace LeetCode.ConsoleApp {
             string[] testStrings = new string[] { "III", "IV", "IX", "LVIII", "MCMXCIV" };
             foreach (string str in testStrings) {
                 Console.WriteLine ("{0} -> {1}", str, romanToInteger.RomanToInt (str));
+            }
+        }
+
+        private static void IntegerToRomanTest () {
+            Console.WriteLine ("\nInteger To Roman question:");
+
+            IntegerToRoman integerToRoman = new IntegerToRoman ();
+
+            int[] testNumbers = new int[] { 3, 4, 9, 58, 1994 };
+            foreach (int number in testNumbers) {
+                Console.WriteLine ("{0} -> {1}", number, integerToRoman.IntToRoman (number));
             }
         }
     }
