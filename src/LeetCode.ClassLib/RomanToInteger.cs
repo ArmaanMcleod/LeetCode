@@ -35,18 +35,18 @@ Given a roman numeral, convert it to an integer. Input is guaranteed to be withi
 namespace LeetCode.ClassLib {
     public class RomanToInteger {
 
-        private static Dictionary<string, int> map = new Dictionary<string, int> { { "CM", 900 },
-            { "CD", 400 },
-            { "XC", 90 },
-            { "XL", 40 },
-            { "IX", 9 },
-            { "IV", 4 },
-            { "M", 1000 },
+        private static Dictionary<string, int> map = new Dictionary<string, int> { { "M", 1000 },
+            { "CM", 900 },
             { "D", 500 },
+            { "CD", 400 },
             { "C", 100 },
+            { "XC", 90 },
             { "L", 50 },
+            { "XL", 40 },
             { "X", 10 },
+            { "IX", 9 },
             { "V", 5 },
+            { "IV", 4 },
             { "I", 1 }
         };
 
@@ -58,14 +58,21 @@ namespace LeetCode.ClassLib {
         public int RomanToInt (string s) {
             int number = 0;
 
-            foreach (KeyValuePair<string, int> pair in map) {
-                if (String.IsNullOrEmpty (s)) {
+            while (!String.IsNullOrEmpty (s)) {
+                if (s.Length == 1) {
+                    number += map[s];
                     return number;
                 }
 
-                int matches = Regex.Matches (s, pair.Key).Count;
-                number += pair.Value * matches;
-                s = s.Replace (pair.Key, "");
+                string nextTwo = s.Substring (0, 2);
+                if (map.ContainsKey (nextTwo)) {
+                    number += map[nextTwo];
+                    s = s.Substring (2);
+                } else {
+                    string singleChar = s.Substring (0, 1);
+                    number += map[singleChar];
+                    s = s.Substring (1);
+                }
             }
 
             return number;
