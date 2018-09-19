@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using LeetCode.ClassLib;
 
 namespace LeetCode.ConsoleApp {
@@ -15,6 +17,7 @@ namespace LeetCode.ConsoleApp {
             PalindromeNumberTest ();
             RomanToIntegerTest ();
             IntegerToRomanTest ();
+            LongestCommonPrefixTest ();
         }
 
         /// <summary>
@@ -143,6 +146,23 @@ namespace LeetCode.ConsoleApp {
             foreach (int number in testNumbers) {
                 Console.WriteLine ("{0} -> {1}", number, integerToRoman.IntToRoman (number));
             }
+        }
+
+        private static void LongestCommonPrefixTest () {
+            Console.WriteLine ("\nLongest Common Prefix question:");
+
+            LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix ();
+
+            List<string[]> testStringArrays = new List<string[]> {
+                new string[] { "flower", "flow", "flight" },
+                new string[] { "dog", "racecar", "car" },
+                new string[] { }
+            };
+
+            foreach (string[] stringArray in testStringArrays) {
+                Console.WriteLine ("[{0}] -> {1}", string.Join (", ", stringArray), longestCommonPrefix.LongestCommonPrefixOne (stringArray));
+            }
+
         }
     }
 }
