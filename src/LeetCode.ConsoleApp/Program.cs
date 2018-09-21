@@ -18,6 +18,7 @@ namespace LeetCode.ConsoleApp {
             RomanToIntegerTest ();
             IntegerToRomanTest ();
             LongestCommonPrefixTest ();
+            ThreeSumTest ();
         }
 
         /// <summary>
@@ -153,7 +154,7 @@ namespace LeetCode.ConsoleApp {
 
             LongestCommonPrefix longestCommonPrefix = new LongestCommonPrefix ();
 
-            List<string[]> testStringArrays = new List<string[]> {
+            IList<string[]> testStringArrays = new List<string[]> {
                 new string[] { "flower", "flow", "flight" },
                 new string[] { "dog", "racecar", "car" },
                 new string[] { }
@@ -163,6 +164,27 @@ namespace LeetCode.ConsoleApp {
                 Console.WriteLine ("[{0}] -> {1}", string.Join (", ", stringArray), longestCommonPrefix.LongestCommonPrefixOne (stringArray));
             }
 
+        }
+
+        private static void ThreeSumTest () {
+            Console.WriteLine ("\n3 Sum question:");
+
+            ThreeSum threeSum = new ThreeSum ();
+
+            IList<int[]> testNumberArrays = new List<int[]> {
+                new int[] {-1, 0, 1, 2, -1, -4 }
+            };
+
+            foreach (int[] array in testNumberArrays) {
+                Console.WriteLine ("[{0}] -> [", string.Join (", ", array));
+
+                IList<IList<int>> solution = threeSum.ThreeSumOne (array);
+                foreach (List<int> set in solution) {
+                    Console.WriteLine ("[{0}],", string.Join (", ", set));
+                }
+
+                Console.WriteLine ("]");
+            }
         }
     }
 }
