@@ -20,6 +20,7 @@ namespace LeetCode.ConsoleApp {
             LongestCommonPrefixTest ();
             ThreeSumTest ();
             ThreeSumClosestTest ();
+            LetterCombinationsTest ();
         }
 
         /// <summary>
@@ -202,6 +203,20 @@ namespace LeetCode.ConsoleApp {
 
             foreach (Tuple<int[], int> pair in testNumberArrays) {
                 Console.WriteLine ("[{0}] -> {1}", string.Join (", ", pair.Item1), threeSumClosest.ThreeSumClosestOne (pair.Item1, pair.Item2));
+            }
+        }
+
+        private static void LetterCombinationsTest () {
+            Console.WriteLine ("\n3 Letter Combinations question:");
+
+            LetterCombinations letterCombinations = new LetterCombinations ();
+
+            IList<string> testStrings = new List<string> {
+                "23"
+            };
+
+            foreach (string testString in testStrings) {
+                Console.WriteLine ("{0} -> [{1}]", testString, String.Join (", ", letterCombinations.LetterCombinationsOne (testString)));
             }
         }
     }
