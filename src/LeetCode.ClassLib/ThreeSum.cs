@@ -37,6 +37,16 @@ namespace LeetCode.ClassLib {
 
             int length = nums.Length;
 
+            if (length < 3) {
+                return sums;
+            } else if (length == 3) {
+                int sum = nums.Sum ();
+                if (sum == 0) {
+                    sums.Add (new List<int> (nums));
+                    return sums;
+                }
+            }
+
             Array.Sort (nums);
 
             for (int i = 0; i < length - 2; i++) {

@@ -19,6 +19,7 @@ namespace LeetCode.ConsoleApp {
             IntegerToRomanTest ();
             LongestCommonPrefixTest ();
             ThreeSumTest ();
+            ThreeSumClosestTest ();
         }
 
         /// <summary>
@@ -184,6 +185,23 @@ namespace LeetCode.ConsoleApp {
                 }
 
                 Console.WriteLine ("]");
+            }
+        }
+
+        private static void ThreeSumClosestTest () {
+            Console.WriteLine ("\n3 Sum Closest question:");
+
+            ThreeSumClosest threeSumClosest = new ThreeSumClosest ();
+
+            IList<Tuple<int[], int>> testNumberArrays = new List<Tuple<int[], int>> {
+                Tuple.Create (new int[] {-1, 2, 1, -4 }, 1),
+                Tuple.Create (new int[] { 1, 2, 4, 8, 16, 32, 64, 128 }, 82),
+                Tuple.Create (new int[] { 1, 1, -1, -1, 3 }, -1),
+                Tuple.Create (new int[] {-1, 2, 1, -4 }, 1)
+            };
+
+            foreach (Tuple<int[], int> pair in testNumberArrays) {
+                Console.WriteLine ("[{0}] -> {1}", string.Join (", ", pair.Item1), threeSumClosest.ThreeSumClosestOne (pair.Item1, pair.Item2));
             }
         }
     }
