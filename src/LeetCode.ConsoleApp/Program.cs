@@ -21,6 +21,7 @@ namespace LeetCode.ConsoleApp {
             ThreeSumTest ();
             ThreeSumClosestTest ();
             LetterCombinationsTest ();
+            ValidParenthesesTest ();
         }
 
         /// <summary>
@@ -217,6 +218,24 @@ namespace LeetCode.ConsoleApp {
 
             foreach (string testString in testStrings) {
                 Console.WriteLine ("{0} -> [{1}]", testString, String.Join (", ", letterCombinations.LetterCombinationsOne (testString)));
+            }
+        }
+
+        private static void ValidParenthesesTest () {
+            Console.WriteLine ("\n3 Valid Parentheses question:");
+
+            ValidParentheses validParentheses = new ValidParentheses ();
+
+            IList<string> testStrings = new List<string> {
+                "()",
+                "()[]{}",
+                "(]",
+                "([)]",
+                "{[]}"
+            };
+
+            foreach (string testString in testStrings) {
+                Console.WriteLine ("{0} -> {1}", testString, validParentheses.IsValid (testString));
             }
         }
     }
