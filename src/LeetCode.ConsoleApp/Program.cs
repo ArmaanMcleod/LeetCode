@@ -22,6 +22,7 @@ namespace LeetCode.ConsoleApp {
             ThreeSumClosestTest ();
             LetterCombinationsTest ();
             ValidParenthesesTest ();
+            splitConcatenationTest ();
         }
 
         /// <summary>
@@ -236,6 +237,26 @@ namespace LeetCode.ConsoleApp {
 
             foreach (string testString in testStrings) {
                 Console.WriteLine ("{0} -> {1}", testString, validParentheses.IsValid (testString));
+            }
+        }
+
+        private static void splitConcatenationTest () {
+            Console.WriteLine ("\nSubstring with Concatenation of All Words");
+
+            SubStringConcatenation subStringConcatenation = new SubStringConcatenation ();
+
+            IList<Tuple<string, string[]>> testStrings = new List<Tuple<string, string[]>> {
+                Tuple.Create ("barfoothefoobarman", new string[] { "foo", "bar" }),
+                Tuple.Create ("wordgoodstudentgoodword", new string[] { "word", "student" }),
+                Tuple.Create ("wordgoodgoodgoodbestword", new string[] { "word", "good", "best", "good" }),
+                Tuple.Create ("", new string[] { }),
+                Tuple.Create ("ababaab", new string[] { "ab", "ba", "ba" })
+            };
+
+            foreach (Tuple<string, string[]> pair in testStrings) {
+                Console.WriteLine ("s = {0} words = [{1}] -> [{2}]", pair.Item1,
+                    String.Join (", ", pair.Item2),
+                    String.Join (", ", subStringConcatenation.FindSubstring (pair.Item1, pair.Item2)));
             }
         }
     }

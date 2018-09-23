@@ -44,6 +44,12 @@ namespace LeetCode.ClassLib {
             { ']', '[' }
         };
 
+        /// <summary>
+        /// Returns whether a string of parentheses is correctly balanced.
+        /// Uses stack based approach.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <returns>Boolean indicating if string is balanced</returns>
         public bool IsValid (string s) {
             if (s.Length % 2 != 0) {
                 return false;

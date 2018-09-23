@@ -28,6 +28,12 @@ namespace LeetCode.ClassLib {
     /// Straightforward solution that reverses the integer in string format
     /// </summary>
     public class ReverseInteger {
+
+        /// <summary>
+        /// Brute force reversal of integer using strings.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <returns>The integer reversed</returns>
         public int Reverse (int x) {
             try {
 

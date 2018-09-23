@@ -26,8 +26,10 @@ namespace LeetCode.ClassLib {
     public class StringToInteger {
 
         /// <summary>
-        /// Main solution for converting string to atoi number
+        /// Main solution to atoi problem.
         /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         public int MyAtoi (string str) {
 
             // Trim the string of whitespace

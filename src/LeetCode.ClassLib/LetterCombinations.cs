@@ -36,6 +36,12 @@ namespace LeetCode.ClassLib {
             { '9', "wxyz" }
         };
 
+        /// <summary>
+        /// Naive approach to finding all substring combinations.
+        /// Behaves simuilarily to a cartesian product.
+        /// </summary>
+        /// <param name="digits"></param>
+        /// <returns></returns>
         public IList<string> LetterCombinationsOne (string digits) {
             List<string> combinations = new List<string> ();
 
